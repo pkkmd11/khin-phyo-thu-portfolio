@@ -1,75 +1,188 @@
-# React + TypeScript + Vite
+# Khin Phyo Thu — Political Science & Social Research Portfolio
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A personal portfolio website built with **React**, **TypeScript**, **Vite**, **Tailwind CSS**, and **framer-motion**, deployed automatically on **GitHub Pages**.
 
-Currently, two official plugins are available:
+🔗 Live site: https://pkkmd11.github.io/khin-phyo-thu-portfolio/
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## About
 
-## React Compiler
+This portfolio showcases the background, experience, education, skills, and selected work of **Khin Phyo Thu**, a Political Science graduate with a Certificate in Gender Studies and professional experience across programme support, information management, education, and healthcare claims. Key interest areas include human rights, gender equality, governance, transitional justice, conflict analysis, and social research — with a focus on Myanmar.
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## Tech Stack
 
-## Expanding the ESLint configuration
+- [React 19](https://react.dev/) — UI library
+- [TypeScript](https://www.typescriptlang.org/) — type safety
+- [Vite](https://vitejs.dev/) — build tool & dev server
+- [Tailwind CSS v4](https://tailwindcss.com/) — styling
+- [framer-motion](https://www.framer.com/motion/) — animations
+- [lucide-react](https://lucide.dev/) — icons
+- GitHub Pages + GitHub Actions — hosting & continuous deployment
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
-
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
-
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+## Project Structure
 
 ```
-
-You can also install [eslint-plugin-react-x](https://npmx.dev/package/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://npmx.dev/package/eslint-plugin-react-dom) for React-specific lint rules:
-
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-
+khin-phyo-thu-portfolio/
+├── .github/workflows/deploy.yml   # GitHub Actions: build & deploy to GitHub Pages
+├── index.html                     # Entry HTML (SEO meta tags, fonts, favicon)
+├── vite.config.ts                 # Vite config (React + Tailwind plugins, GitHub Pages base path)
+├── eslint.config.js               # ESLint config
+├── tsconfig*.json                 # TypeScript configs
+├── package.json                   # Dependencies & scripts
+├── package-lock.json              # Locked dependency versions
+├── .gitignore                     # Files intentionally excluded from Git
+├── README.md                      # This file
+├── public/
+│   ├── favicon.svg
+│   ├── icons.svg
+│   └── images/
+│       ├── profile.webp           # Profile portrait (shown in Hero)
+│       └── projects/              # Work sample images (add images here)
+├── src/
+│   ├── main.tsx                   # React entry point
+│   ├── App.tsx                    # App shell & section order
+│   ├── index.css                  # Global styles & CSS variables
+│   ├── App.css
+│   ├── data/
+│   │   └── portfolio.ts           # ← ALL editable content lives here
+│   ├── components/
+│   │   ├── Navbar.tsx             # Navigation (reads navigationItems)
+│   │   ├── Hero.tsx               # Hero section (reads profile)
+│   │   ├── About.tsx
+│   │   ├── Experience.tsx
+│   │   ├── Education.tsx
+│   │   ├── Skills.tsx
+│   │   ├── SelectedWork.tsx
+│   │   ├── Contact.tsx
+│   │   └── Footer.tsx
+│   ├── assets/
+│   │   ├── hero.png
+│   │   ├── react.svg
+│   │   └── vite.svg
+│   └── hooks/                     # Custom React hooks (empty)
 ```
+
+## What Is Safe to Upload to GitHub
+
+The repository is already pushed to GitHub at `https://github.com/pkkmd11/khin-phyo-thu-portfolio`. Going forward, here is what is safe (and not safe) to commit and push.
+
+### ✅ Safe to commit / push
+
+- All source code under `src/`
+- Public assets under `public/` (except personal PDFs)
+- `index.html`, `vite.config.ts`, `eslint.config.js`
+- `package.json` and `package-lock.json`
+- `tsconfig*.json`
+- `README.md`
+- `.github/` (CI/CD workflows)
+
+### ❌ Do NOT upload (already gitignored)
+
+These are excluded by `.gitignore` and will not be committed even if you run `git add .`:
+
+- `node_modules/` — installed via `npm install`
+- `dist/` — production build output (regenerated by GitHub Actions on every push)
+- `.env`, `.env.local`, `.env.*.local` — environment variables & API keys
+- `Profile.pdf`, `*.local.pdf` — personal documents
+- `.clinerules`
+- `logs/`, `*.log`, `npm-debug.log*`
+- `.vscode/*` (except `.vscode/extensions.json`), `.idea/`
+- `.DS_Store`, `Thumbs.db`, `*.swp`, `*.swo`
+
+## Getting Started
+
+### Prerequisites
+
+- [Node.js](https://nodejs.org/) (v22 recommended)
+
+### Install dependencies
+
+```bash
+npm install
+```
+
+### Run the development server
+
+```bash
+npm run dev
+```
+
+Then open the local URL Vite prints (usually `http://localhost:5173`).
+
+### Build for production
+
+```bash
+npm run build
+```
+
+Output goes to `dist/`.
+
+### Preview the production build locally
+
+```bash
+npm run preview
+```
+
+### Lint the code
+
+```bash
+npm run lint
+```
+
+## Deployment
+
+The site is deployed automatically to **GitHub Pages** via GitHub Actions (`.github/workflows/deploy.yml`) on every push to the `main` branch.
+
+The Vite `base` is set to `/khin-phyo-thu-portfolio/` for GitHub Pages project-site hosting.
+
+## How to Edit Content
+
+Most content is centralized in a single file so you rarely need to touch components:
+
+### 1. Profile, bio, and contact
+Edit `src/data/portfolio.ts` → `profile` object:
+- `name`, `tagline`, `headline`, `heroIntro`
+- `aboutParagraphs` (array of strings shown in the About section)
+- `location`, `email`, `linkedin`
+- `portraitUrl` / `portraitAlt` (defaults to `public/images/profile.webp`)
+- `cvUrl` (defaults to a CV PDF — add your own PDF to `public/images/` and remember to list personal PDFs in `.gitignore` so they are not pushed)
+
+### 2. Navigation links
+Edit `navigationItems` in `src/data/portfolio.ts`. Each item needs `label` and `href` (anchor links such as `#about`, `#experience`, `#work`, `#contact`).
+
+### 3. Experience
+Edit the `experiences` array. Fields: `id`, `title`, `organization`, `period`, `location`, `isCurrent`, and optional `highlights` (array of strings).
+
+### 4. Education
+Edit the `education` array. Fields: `id`, `degree`, `field`, `institution`, `period`.
+
+### 5. Skills & Interests
+Edit the `skills` and `interests` string arrays in `src/data/portfolio.ts`.
+
+### 6. Selected Work
+Edit the `selectedWork` array. It is currently empty — populate it only after verified work samples are approved for public sharing. Fields:
+- `id`, `title`, `category`, `year`, `summary`
+- optional `organization`, `link`, `imageUrl`
+
+Categories: `Research & Writing`, `Programme Activities`, `Reports & Documentation`, `Publications`, `Community Initiatives`.
+
+Add work images to `public/images/projects/` and reference them via `imageUrl`.
+
+### 7. Styling & layout
+- Colors and typography use Tailwind CSS classes plus CSS variables in `src/index.css`.
+- The layout is responsive and mobile-first, with a sticky navbar and mobile drawer.
+
+## How to Add a New Feature
+
+1. **Create a new component** in `src/components/` (e.g., `Projects.tsx`). Follow the existing section pattern: export a function component and use `motion` from framer-motion for animations.
+2. **Add data** to `src/data/portfolio.ts` if the feature needs content — define a TypeScript interface and export a const array.
+3. **Wire it up** in `src/App.tsx` — import the component and render it inside `<main>`. Optionally add a matching item to `navigationItems` in `src/data/portfolio.ts`.
+4. **Verify locally** — run `npm run dev`, then `npm run lint` and `npm run build`.
+5. **Commit and push** to `main` — GitHub Actions will rebuild and redeploy the site automatically.
+
+## Contributing
+
+This is a personal portfolio. If you have suggestions, feel free to open an issue or pull request on GitHub.
+
+---
+
+Built with Vite + React + TypeScript + Tailwind CSS.
