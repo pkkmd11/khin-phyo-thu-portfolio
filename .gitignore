@@ -1,2 +1,30 @@
-node_modules
+# Dependencies
+node_modules/
+
+# Build outputs (GitHub Actions က အလိုအလျောက် build ပေးမှာမို့ push လုပ်စရာမလိုပါ)
+dist/
+dist-ssr/
+
+# Environment variables & API keys (Groq / Kimi API keys မပေါက်ကြားစေရန်)
+.env
+.env.local
+.env.*.local
 .clinerules
+# Sensitive / Source personal documents (Public repo ပေါ် မတင်လိုသော ဖိုင်များ)
+Profile.pdf
+*.local.pdf
+
+# Logs
+logs/
+*.log
+npm-debug.log*
+pnpm-debug.log*
+
+# Editor & OS files
+.vscode/*
+!.vscode/extensions.json
+.idea/
+.DS_Store
+Thumbs.db
+*.swp
+*.swo
